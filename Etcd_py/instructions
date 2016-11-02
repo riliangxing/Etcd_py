@@ -1,0 +1,28 @@
+Etcd 工具
+1. 文件说明
+   adn_checkPut.py     工具的入口文件 执行校验和上传
+   adn_checkSsp.py     校验文件；提供校验方法，包括，需上传的文件，文件是否完整等
+   adn_getconfig.py    读取配置文件
+   adn_readSspvm.py    读取相对于的模板文件内容
+   adn_writeSsp.py     导出写入到指定文件
+   config.ini          配置文件
+
+2. 配置文件说明
+   配置文件四个section：path、connection、sspinfo、option
+   path:
+        localpath      本地存放vm模板路径
+        etcdpath       etcd最外层路径
+        exportpath     导出ssp指定路径
+   connection：
+         host:         etcd集群入口ip
+         port:         端口
+   sspinfo：
+         sspname 需上传ssp 多个ssp以`分割，all代表全部上传（优先选择）
+
+   option：
+         option       功能选项 校验或上传 0:只校验不上传 1:校验上传 2 导出ssp 模板到指定路径
+
+3. 使用说明
+   安装python环境
+   配置config.ini
+   执行adn_checkPut文件；python adn_checkPut.py (五个文件需在同一目录下)
